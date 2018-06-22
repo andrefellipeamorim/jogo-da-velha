@@ -1,0 +1,77 @@
+body{
+	background-color: #F5F6CE;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#head{
+	margin-top: 100px;
+	margin-bottom: 60px;
+}
+
+#falavelha{
+	display: inline-block;
+	position: relative;
+}
+
+#falavelha figcaption{
+	font-family: comic sans ms;
+	position: absolute;
+	top: 95px;
+	right: 10px;
+	left: 138px;
+	font-size: 23px;
+	color: black;
+}
+
+.velha{
+	margin-top: 20px;
+	width: 100px;
+}
+
+.titulo-jogo{
+	font-family: comic sans ms;
+	font-weight: 900;
+	text-shadow: -5px 0 white, 0 5px white, 5px 0 white, 0 -5px white;
+	font-size: 60px;
+	margin-right: 20px;	
+}
+
+.balao-fala{
+	width: 250px;
+	margin-top: 60px;
+}
+
+.players{
+	margin-bottom: 10px;
+}
+
+.botaoplay{
+	margin-top: 50px;
+}
+
+.quadrotab{
+	width: 100px; 
+	height: 100px;
+	background-size: 100%; 
+}
+
+@media only screen and (max-width : 400px){
+	.balao-fala{
+		width: 150px;
+	}
+
+	#falavelha figcaption{
+	font-family: comic sans ms;
+	position: absolute;
+	top: 85px;
+	right: 10px;
+	left: 125px;
+	font-size: 15px;
+	color: black;
+	}
+
+	.titulo-jogo{
+		font-size: 30px;
+	}
+}

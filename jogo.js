@@ -17,7 +17,6 @@ matriz_jogo['c'][1] = 0;
 matriz_jogo['c'][2] = 0;
 matriz_jogo['c'][3] = 0;
 
-
 $(document).ready(function(){ 
 
 	$('#btn_iniciar').click(function(){
@@ -38,9 +37,12 @@ $(document).ready(function(){
 		$('#player_2').html($('#nome_player_2').val());
 
 		//exibir navegação
-
+		
 		$('#pagina_inicial').hide();
 		$('#palco_jogo').show();
+
+		$('#fala').html('Anda logo, '+ $('#nome_player_1').val() + ', tu começa peste...')
+		
 	});
 
 	$('.jogada').click(function(){
@@ -51,14 +53,16 @@ $(document).ready(function(){
 
 	function jogada(id){
 		var icone = '';
-		var ponto = 0;
+		var ponto = 0;		
 
 		if((rodada % 2) == 1){
 			icone = 'url("imagens/marcacao_1.png")';
 			ponto = -1;
+			$('#fala').html('Agora é '+ $('#nome_player_2').val() + ' que joga...')
 		} else{
 			icone = 'url("imagens/marcacao_2.png")';
 			ponto = 1;
+			$('#fala').html('Agora é '+ $('#nome_player_1').val() + ' que joga...')
 		}
 
 		$('#'+id).css('background-image', icone);
@@ -123,11 +127,11 @@ $(document).ready(function(){
 	function ganhador(pontos){
 		if (pontos == -3){
 			var jogada_1 = $('#nome_player_1').val();
-			alert(jogada_1 +' é o vencedor!');
+			$('#fala').html('Eita, '+ $('#nome_player_2').val() + ' perdeu! kkk...')
 			$('.jogada').off();
 		} else if (pontos == 3){
 			var jogada_2 = $('#nome_player_2').val();
-			alert(jogada_2 +' é o vencedor!');
+			$('#fala').html('Eita, '+ $('#nome_player_1').val() + ' perdeu! kkk...')
 			$('.jogada').off();			
 		}
 	}

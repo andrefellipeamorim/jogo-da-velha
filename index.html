@@ -6,85 +6,99 @@
 		<title>Jogo da Velha</title>
 		<script src="jquery-2.2.1.js"></script>
 		<script src="jogo.js"></script>
+		<!-- Bootstrap CSS -->
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    	<!--CSS styles-->
+    	<link rel="stylesheet" type="text/css" href="styles.css">
+
 	</head>
 
 	<body>
 
-		<div id="pagina_inicial" align="center" style="margin-top: 100px">
-			<table width="600px">
-				<tbody>
-					<tr>
-						<td colspan="3" align="center">JOGO DA VELHA</td>
-					</tr>
-					<tr>
-						<td align="center">
-							<img src="imagens/jogador_1.png">
-							<br>
-							<input id="nome_player_1" type="text" maxlength="10" placeholder="Nome Jogador 1">
-						</td>
-						<td align="center">
-							<img  id="btn_iniciar" src="imagens/iniciar.png">
-						</td>
-						<td align="center"> 
-							<img src="imagens/jogador_2.png">
-							<br>
-							<input id="nome_player_2" type="text" maxlength="10" placeholder="Nome Jogador 2">
-						</td>
-					</tr>
-				</tbody>
-			</table>			
+		<div id="head" class="container" align="center">
+			<span class="titulo-jogo">Jogo da Velha!</span>
+			<br>
+			<figure id="falavelha">
+				<img src="imagens/velha.png" class="velha">
+				<img src="imagens/balao-fala.png" class="balao-fala">
+				<figcaption id="fala">Escreve os nome piazada!</figcaption>
+			</figure>
+
 		</div>
 
-		<div id="palco_jogo" style="display: none; margin-top: 100px; text-align: center;">
-			<div style="display: inline-block;">
-				<img src="imagens/jogador_1.png">
-				<br>
-				<span id='player_1'></span>
-			</div>
-			<div style="display: inline-block;">
-				<table border="0">
-					<tr>
-						<td style="border-bottom: solid 1px red; border-right: solid 1px red">
-							<div class="jogada" id="a-1" style="width: 100px; height: 100px;"></div>
-						</td>
-						<td style="border-bottom: solid 1px red">
-							<div class="jogada" id="a-2" style="width: 100px; height: 100px;"></div>							
-						</td>
-						<td style="border-bottom: solid 1px red; border-left: solid 1px red">
-							<div class="jogada" id="a-3" style="width: 100px; height: 100px;"></div>						
-						</td>
-					</tr>
-					<tr>
-						<td style="border-right: solid 1px red">
-							<div class="jogada" id="b-1" style="width: 100px; height: 100px;"></div>						
-						</td>
-						<td>
-							<div class="jogada" id="b-2" style="width: 100px; height: 100px;"></div>						
-						</td>
-						<td style="border-left: solid 1px red">
-							<div class="jogada" id="b-3" style="width: 100px; height: 100px;"></div>						
-						</td>
-					</tr>
-					<tr>
-						<td style="border-top: solid 1px red; border-right: solid 1px red">
-							<div class="jogada" id="c-1" style="width: 100px; height: 100px;"></div>	
-						</td>
-						<td style="border-top: solid 1px red">
-							<div class="jogada" id="c-2" style="width: 100px; height: 100px;"></div>							
-						</td>														
-						<td style="border-left: solid 1px red; border-top: solid 1px red">
-							<div class="jogada" id="c-3" style="width: 100px; height: 100px;"></div>
-						</td>
-					</tr>
-				</table>
-			</div>
-			<div style="display: inline-block;">
-				<img src="imagens/jogador_2.png">
-				<br>
-				<span id='player_2'></span>
-			</div>
-			
+		<div id="pagina_inicial" align="center" class="container">
+			<div class="row">
+				<div class="col-5">
+					<img src="imagens/jogador_1.png" class="img-fluid players">
+					<br>
+					<input class="form-control" id="nome_player_1" type="text" maxlength="10" placeholder="Nome Jogador 1">
+				</div>	
+
+				<div class="col-2">
+					<img  id="btn_iniciar" src="imagens/iniciar.png" class="img-fluid botaoplay">
+				</div>
+
+				<div class="col-5">
+					<img src="imagens/jogador_2.png" class="img-fluid players">
+						<br>
+					<input class="form-control" id="nome_player_2" type="text" maxlength="10" placeholder="Nome Jogador 2">
+				</div>
+			</div>	
 		</div>
 
+		<div id="palco_jogo" class="container" style="display: none; margin-top: 100px; text-align: center;">
+			<div class="row">
+
+				<div class="col-2" style="display: inline-block;" align="center">
+					<img src="imagens/jogador_1.png" class="players img-fluid">
+					<br>
+					<span id='player_1'></span>
+				</div>
+
+				<div class="col-8" style="display: inline-block;" align="center">
+					<table border="0">
+						<tr>
+							<td style="border-bottom: solid 1px black; border-right: solid 1px black">
+								<div class="jogada quadrotab" id="a-1"></div>
+							</td>
+							<td style="border-bottom: solid 1px black">
+								<div class="jogada quadrotab" id="a-2"></div>							
+							</td>
+							<td style="border-bottom: solid 1px black; border-left: solid 1px black">
+								<div class="jogada quadrotab" id="a-3"></div>						
+							</td>
+						</tr>
+						<tr>
+							<td style="border-right: solid 1px black">
+								<div class="jogada quadrotab" id="b-1"></div>						
+							</td>
+							<td>
+								<div class="jogada quadrotab" id="b-2"></div>						
+							</td>
+							<td style="border-left: solid 1px black">
+								<div class="jogada quadrotab" id="b-3"></div>						
+							</td>
+						</tr>
+						<tr>
+							<td style="border-top: solid 1px black; border-right: solid 1px black">
+								<div class="jogada quadrotab" id="c-1"></div>	
+							</td>
+							<td style="border-top: solid 1px black">
+								<div class="jogada quadrotab" id="c-2"></div>							
+							</td>														
+							<td style="border-left: solid 1px black; border-top: solid 1px black">
+								<div class="jogada quadrotab" id="c-3"></div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="col-2" style="display: inline-block;" align="center">
+					<img src="imagens/jogador_2.png" class="players img-fluid">
+					<br>
+					<span id='player_2'></span>
+				</div>
+			</div>			
+		</div>
 	</body>
 </html>
