@@ -1,5 +1,10 @@
 var rodada = 1;
+var placarsoma1 = 0;
+var placarsoma2 = 0;
+var icone = '';
+var ponto = 0;
 var matriz_jogo = Array(3);
+
 
 matriz_jogo['a'] = Array(3);
 matriz_jogo['b'] = Array(3);
@@ -52,9 +57,7 @@ $(document).ready(function(){
 	});
 
 	function jogada(id){
-		var icone = '';
-		var ponto = 0;		
-
+		
 		if((rodada % 2) == 1){
 			icone = 'url("imagens/marcacao_1.png")';
 			ponto = -1;
@@ -129,11 +132,22 @@ $(document).ready(function(){
 			var jogada_1 = $('#nome_player_1').val();
 			$('#fala').html('Eita, '+ $('#nome_player_2').val() + ' perdeu! kkk...')
 			$('.jogada').off();
+			placarsoma1++;			
+			$('#placarsoma1').html(placarsoma1)
 		} else if (pontos == 3){
 			var jogada_2 = $('#nome_player_2').val();
 			$('#fala').html('Eita, '+ $('#nome_player_1').val() + ' perdeu! kkk...')
+			placarsoma2++;			
+			$('#placarsoma2').html(placarsoma2)
 			$('.jogada').off();			
 		}
 	}
+
+	$('.reset').click(function(){
+		var icone = '';
+		var ponto = 0;
+		$('.jogada').css('background-image', icone);
+	});
+
 });
 
