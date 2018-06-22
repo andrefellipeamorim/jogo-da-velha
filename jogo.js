@@ -1,10 +1,9 @@
 var rodada = 1;
 var placarsoma1 = 0;
 var placarsoma2 = 0;
-var icone = '';
+
 var ponto = 0;
 var matriz_jogo = Array(3);
-
 
 matriz_jogo['a'] = Array(3);
 matriz_jogo['b'] = Array(3);
@@ -52,11 +51,12 @@ $(document).ready(function(){
 
 	$('.jogada').click(function(){
 		var id_campo_clicado = this.id;
-		$('#'+id_campo_clicado).off();
+		/*$('#'+id_campo_clicado).off();*/
 		jogada(id_campo_clicado);
 	});
 
 	function jogada(id){
+		var icone = '';
 		
 		if((rodada % 2) == 1){
 			icone = 'url("imagens/marcacao_1.png")';
@@ -131,23 +131,41 @@ $(document).ready(function(){
 		if (pontos == -3){
 			var jogada_1 = $('#nome_player_1').val();
 			$('#fala').html('Eita, '+ $('#nome_player_2').val() + ' perdeu! kkk...')
-			$('.jogada').off();
 			placarsoma1++;			
 			$('#placarsoma1').html(placarsoma1)
+			/*$('.jogada').off();*/
+			reset();
+
 		} else if (pontos == 3){
 			var jogada_2 = $('#nome_player_2').val();
 			$('#fala').html('Eita, '+ $('#nome_player_1').val() + ' perdeu! kkk...')
 			placarsoma2++;			
 			$('#placarsoma2').html(placarsoma2)
-			$('.jogada').off();			
+			/*$('.jogada').off();*/
+			reset();			
 		}
 	}
 
-	$('.reset').click(function(){
-		var icone = '';
+	function reset(){	
 		var ponto = 0;
-		$('.jogada').css('background-image', icone);
-	});
+		
+		matriz_jogo['a'][1] = 0;
+		matriz_jogo['a'][2] = 0;
+		matriz_jogo['a'][3] = 0;
+
+		matriz_jogo['b'][1] = 0;
+		matriz_jogo['b'][2] = 0;
+		matriz_jogo['b'][3] = 0;
+
+		matriz_jogo['c'][1] = 0;
+		matriz_jogo['c'][2] = 0;
+		matriz_jogo['c'][3] = 0;
+
+		 $('.quadrotab').removeAttr('style');
+		 
+
+
+	};
 
 });
 
