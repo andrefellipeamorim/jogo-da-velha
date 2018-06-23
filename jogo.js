@@ -46,12 +46,11 @@ $(document).ready(function(){
 		$('#palco_jogo').show();
 
 		$('#fala').html('Anda logo, '+ $('#nome_player_1').val() + ', tu começa peste...')
-		
 	});
 
 	$('.jogada').click(function(){
 		var id_campo_clicado = this.id;
-		/*$('#'+id_campo_clicado).off();*/
+		$('#'+id_campo_clicado).off();
 		jogada(id_campo_clicado);
 	});
 
@@ -133,20 +132,20 @@ $(document).ready(function(){
 			$('#fala').html('Eita, '+ $('#nome_player_2').val() + ' perdeu! kkk...')
 			placarsoma1++;			
 			$('#placarsoma1').html(placarsoma1)
-			/*$('.jogada').off();*/
-			reset();
+			$('.jogada').off();
+			
 
 		} else if (pontos == 3){
 			var jogada_2 = $('#nome_player_2').val();
 			$('#fala').html('Eita, '+ $('#nome_player_1').val() + ' perdeu! kkk...')
 			placarsoma2++;			
 			$('#placarsoma2').html(placarsoma2)
-			/*$('.jogada').off();*/
-			reset();			
+			$('.jogada').off();
+						
 		}
 	}
 
-	function reset(){	
+	$('.reset').click(function(){	
 		var ponto = 0;
 		
 		matriz_jogo['a'][1] = 0;
@@ -163,9 +162,13 @@ $(document).ready(function(){
 
 		 $('.quadrotab').removeAttr('style');
 		 
-
-
-	};
+		 $('.jogada').on('click', function(){
+		var id_campo_clicado = this.id;
+		$('#'+id_campo_clicado).off();
+		jogada(id_campo_clicado);
+	});
+		 
+	});
 
 });
 
